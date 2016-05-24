@@ -1,0 +1,19 @@
+<h1 class='sub-heading'>Completed Items</h1>
+
+<div class='body'>
+	<table class='index'>
+		<tr>
+			<th>Item</th>
+			<th>Priority</th>
+			<th>Date Completed</th>
+		</tr>
+		<% @todo_items.each do |item| %>
+			<tr>
+				<td class='item'><%= item.name %></td>
+				<td class='item'><%= item.priority %></td>
+				<td class='item'><%= item.completed_date %></td>
+				<td class='item'><%= render 'layouts/uncomplete', todo_item: item %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

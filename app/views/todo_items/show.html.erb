@@ -1,2 +1,7 @@
-<h1>TodoItems#show</h1>
-<p>Find me in app/views/todo_items/show.html.erb</p>
+<h2><%= @todo_item.name %></h2>
+<p><%= @todo_item.description %></p>
+
+<%= render 'layouts/complete', todo_item: @todo_item %>
+
+<%= link_to 'Edit', edit_todo_item_path(@todo_item) %> |
+<%= link_to 'Delete', todo_item_path(@todo_item), method: :delete %> 

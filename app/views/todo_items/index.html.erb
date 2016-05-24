@@ -1,6 +1,26 @@
-<h1>Todo List</h1>
-<h3>Git er done</h3>
+<div class='sub-heading'>
+	<h1>Todo List</h1>
+	<h3>Git er done</h3>
+</div>
 
-<% @todo_items.each do |item| %>
-	<%= item.title %>
-<% end %>
+<div class='body'>
+	<table class='index'>
+		<tr>
+			<th>Todo Item</th>
+			<th>Priority</th>
+		</tr>
+		<% @todo_items.each do |item| %>
+				<tr>
+					<td class='item'><%= link_to item.name, todo_item_path(item) %></td>
+					<td class='item'><%= item.priority if item.priority != 0%></td>
+					<td class='item'><%= render 'layouts/complete', todo_item: item %></td>
+				</tr>
+				<tr>
+					<td class='nav'>
+						<%= link_to 'Edit', edit_todo_item_path(item) %>
+						<%= link_to 'Delete', todo_item_path(item), method: :delete %> 
+					</td>
+				</tr>
+		<% end %>
+	</table>
+</div>
