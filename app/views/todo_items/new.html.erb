@@ -1,0 +1,11 @@
+<h1>Create a New Todo</h1>
+
+<%= form_for @todo_item do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :priority %>
+	<%= f.number_field :priority %>
+	<h6>If desired, assign a priority value of 1 or higher</h6>
+	<%= f.hidden_field :completed, value: false %>
+	<%= f.submit %>
+<% end %>
